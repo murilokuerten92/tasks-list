@@ -1,13 +1,12 @@
-import * as S from './styles';
+import * as S from "./styles";
+import logo from "@/assets/images/logo.png";
 
 export const Dashboard = () => {
-
-
-
-
-    return (
-        <div>
-            <h1>Start App</h1>
-        </div>
-    )
-}
+  return (
+    <S.Container>
+      <header className="header">
+        <img src={logo} alt="logo" />
+      </header>
+    </S.Container>
+  );
+};
