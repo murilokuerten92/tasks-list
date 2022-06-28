@@ -8,5 +8,22 @@ width: 100%;
     justify-content: center;
     align-items: center;
     height: 12rem;
+    background: var(--gray700);
+}
+
+.main {
+   
+     max-width: 46rem;
+     margin: 0 auto;
+     padding: 0 1rem;
+
+
+    &__aside {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 90px;
+        gap: 8px;
+        margin-top: -1.4rem;
+    }
 }
 `;
