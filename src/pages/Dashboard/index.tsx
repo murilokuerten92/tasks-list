@@ -17,6 +17,7 @@ export const Dashboard = () => {
             placeholder="Adicione uma nova tarefa"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
+            className='input'
           />
           <button>
             <h4>Criar</h4>

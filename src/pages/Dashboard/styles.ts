@@ -23,7 +23,12 @@ width: 100%;
         display: grid;
         grid-template-columns: 1fr 90px;
         gap: 8px;
-        margin-top: -1.4rem;
+        margin-top: calc(0px - 1.7rem);
+        height: 3.4rem;
+    }
+
+    &__input {
+     
     }
 }
 `;
