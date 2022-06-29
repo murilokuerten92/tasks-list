@@ -30,9 +30,17 @@ width: 100%;
             border: 1px solid var(--700);
             border-radius: 8px;
             padding: 1rem;
-        
-    }
+            :focus{
+                outline: transparent;
+           
+          }
 
+          :hover {
+            border: 1px solid var(--purple-dark);
+                transition: .3s;
+            }
+    }
+   
     &__button{
         display: flex;
         align-items: center;
@@ -47,6 +55,7 @@ width: 100%;
                 filter: brightness(0.8);
                 transition: .3s;
             }
+
     }
     &__h4 {
         color: var(--gray100);
