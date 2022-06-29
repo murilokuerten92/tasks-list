@@ -30,6 +30,7 @@ width: 100%;
             border: 1px solid var(--700);
             border-radius: 8px;
             padding: 1rem;
+        
     }
 
     &__button{
@@ -41,6 +42,11 @@ width: 100%;
         padding: 1rem;
         border: none;
         column-gap: 0.5rem;
+        cursor: pointer;
+        :hover {
+                filter: brightness(0.8);
+                transition: .3s;
+            }
     }
     &__h4 {
         color: var(--gray100);
