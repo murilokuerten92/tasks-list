@@ -17,9 +17,10 @@ export const Dashboard = () => {
             placeholder="Adicione uma nova tarefa"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
+            className='main__aside__input'
           />
-          <button>
-            <h4>Criar</h4>
+          <button className='main__aside__button'>
+            <h4 className='main__aside__h4'>Criar</h4>
              <img src={AddSVG} alt='add' />
           </button>
         </section>

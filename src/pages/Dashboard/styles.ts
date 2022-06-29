@@ -22,8 +22,39 @@ width: 100%;
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 90px;
-        gap: 8px;
-        margin-top: -1.4rem;
+        gap: 0.6rem;
+        margin-top: calc(0px - 1.7rem);
+        height: 3.4rem;
+        &__input {
+            background: var(--gray500);
+            border: 1px solid var(--700);
+            border-radius: 8px;
+            padding: 1rem;
     }
+
+    &__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--blue-dark);
+        border-radius: 8px;
+        padding: 1rem;
+        border: none;
+        column-gap: 0.5rem;
+    }
+    &__h4 {
+        color: var(--gray100);
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    img {
+        width: 1rem;
+        height: 1rem;
+    }
+    }
+
+  
+
+
 }
 `;
