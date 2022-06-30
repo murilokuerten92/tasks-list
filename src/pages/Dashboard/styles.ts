@@ -15,7 +15,7 @@ width: 100%;
    
      max-width: 46rem;
      margin: 0 auto;
-     padding: 0 1rem;
+
 
 
     &__aside {
@@ -69,6 +69,48 @@ width: 100%;
     }
 
   
+  .main {
+   
+      &__container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 4.2rem;
+
+      }
+
+      &__tasks {
+          display: flex;
+          align-items: center;
+          column-gap: .6rem;
+
+        
+          &__text {
+              color: var(--blue);
+              font-size: 0.8rem;
+              font-weight: bold;
+          }
+
+          &__amount {
+             background: var(--gray400);
+             width: 25px;
+             height: 19px;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             padding: 2px 8px;
+             gap: 10px;
+             border-radius: 999px;
+          
+
+             span {
+                 color: var(--gray200);
+                 font-size: .6rem;
+                 font-weight: bold;
+             }
+          }
+      }
+  }
 
 
 }
