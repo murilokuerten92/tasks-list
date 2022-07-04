@@ -1,4 +1,24 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+type checkParams = {
+  checked?: boolean;
+}
+
+export const Radio = styled.div<checkParams>`
+    border: 2px solid var(--blue);
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    align-self: flex-start;
+                    
+    ${({ checked }) => checked && css`
+        background: var(--purple-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    `}
+`
 
 export const Container = styled.main`
 width: 100%;
@@ -123,7 +143,36 @@ width: 100%;
           border-top: 1px solid var(--gray400);
           align-items: center;
           margin-top: 1rem;
-          img {
+          width: 100%;
+
+          &__card {
+              display: flex;
+              background: var(--gray400) !important;
+              width: 100%;
+              border-radius: 8px;
+              height: 72px;
+          
+              padding: 16px;
+              column-gap: 1rem;
+              &__text{
+                  color: var(--gray100);
+                  font-size: 0.8rem;
+                  font-weight: 400;
+                  max-width: 632px;
+     
+                }
+       
+              &__trash {
+               
+                  img {
+                     align-self: flex-start;
+                      width: 0.8rem;
+                      width: 0.8rem;
+                  }
+              }
+           
+          }
+          &__resportIMG {
               width: 3.4rem;
               height: 3.4rem;   
               margin-top: 3rem;
