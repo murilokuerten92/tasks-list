@@ -91,9 +91,15 @@ width: 100%;
               font-weight: bold;
           }
 
+          &__text_checked {
+              color: var(--purple);
+              font-size: 0.8rem;
+              font-weight: bold;
+          }
+
           &__amount {
              background: var(--gray400);
-             width: 25px;
+   
              height: 19px;
              display: flex;
              align-items: center;
@@ -122,9 +128,6 @@ width: 100%;
               height: 3.4rem;   
               margin-top: 3rem;
           }
-
- 
-
    
           &__text {
               margin-top: 1rem;

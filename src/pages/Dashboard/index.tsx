@@ -35,7 +35,7 @@ export const Dashboard = () => {
             </div>
 
             <div className="main__tasks">
-              <h6 className="main__tasks__text">Concluídas</h6>
+              <h6 className="main__tasks__text_checked">Concluídas</h6>
               <div className="main__tasks__amount">
                 <span>0</span>
               </div>
