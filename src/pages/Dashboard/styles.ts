@@ -6,11 +6,11 @@ type checkParams = {
 
 export const Radio = styled.div<checkParams>`
     border: 2px solid var(--blue);
-    height: 1rem;
-    width: 1rem;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
     align-self: flex-start;
-                    
+ 
     ${({ checked }) => checked && css`
         background: var(--purple-dark);
         display: flex;
@@ -39,17 +39,21 @@ width: 100%;
 
 
     &__aside {
+      
+      form {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 90px;
         gap: 0.6rem;
         margin-top: calc(0px - 1.7rem);
         height: 3.4rem;
+        }
         &__input {
             background: var(--gray500);
             border: 1px solid var(--700);
             border-radius: 8px;
             padding: 1rem;
+            color: var(--gray100);
             :focus{
                 outline: transparent;
            
@@ -144,16 +148,24 @@ width: 100%;
           align-items: center;
           margin-top: 1rem;
           width: 100%;
-
+          row-gap: 1rem;
           &__card {
               display: flex;
               background: var(--gray400) !important;
               width: 100%;
               border-radius: 8px;
               height: 72px;
-          
+               
               padding: 16px;
               column-gap: 1rem;
+              justify-content: space-between;
+
+              &__description {
+                  display: flex;
+                  column-gap: 1rem;
+                  cursor: pointer;
+              }      
+        
               &__text{
                   color: var(--gray100);
                   font-size: 0.8rem;
@@ -163,9 +175,9 @@ width: 100%;
                 }
        
               &__trash {
-               
+                cursor: pointer;
                   img {
-                     align-self: flex-start;
+                  
                       width: 0.8rem;
                       width: 0.8rem;
                   }
@@ -202,3 +214,15 @@ width: 100%;
 
 }
 `;
+
+export const Paragraph = styled.p<checkParams>`
+ color: var(--gray100);
+ font-size: 0.8rem;
+ font-weight: 400;
+ max-width: 632px;
+
+ ${({ checked }) => checked && css`
+        text-decoration: line-through;
+        color: var(--gray300);
+    `}
+`
