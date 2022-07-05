@@ -77,10 +77,11 @@ export const Dashboard = () => {
           <section className="main__list">
             {tasks.map((task) => (
               <div className="main__list__card" key={task.id}>
-                <div className="main__list__card__description"     onClick={() => setChecked(!checked)}>
-                  <S.Radio
-                    checked={checked}
-                  >
+                <div
+                  className="main__list__card__description"
+                  onClick={() => setChecked(!checked)}
+                >
+                  <S.Radio checked={checked}>
                     {checked && <img src={CheckSVG} alt="check" />}
                   </S.Radio>
                   <div className="main__list__card__text">
@@ -96,19 +97,23 @@ export const Dashboard = () => {
               </div>
             ))}
 
-            <img
-              src={ReportSVG}
-              alt="report"
-              className="main__list__resportIMG"
-            />
-            <div className="main__list__text">
-              <strong className="main__list__text__title">
-                Você ainda não tem tarefas cadastradas
-              </strong>
-              <p className="main__list__text__p">
-                Crie tarefas e organize seus itens a fazer
-              </p>
-            </div>
+            {tasks.length === 0 && (
+                <>
+                  <img
+                    src={ReportSVG}
+                    alt="report"
+                    className="main__list__resportIMG"
+                  />
+                  <div className="main__list__text">
+                    <strong className="main__list__text__title">
+                      Você ainda não tem tarefas cadastradas
+                    </strong>
+                    <p className="main__list__text__p">
+                      Crie tarefas e organize seus itens a fazer
+                    </p>
+                  </div>
+                </>
+              )}
           </section>
         </main>
       </div>
