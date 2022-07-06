@@ -27,7 +27,18 @@ export const Dashboard = () => {
     setTasks([...tasks, { id: Math.random(), name: newTask, checked: false }]);
   }
 
-  console.log(tasks);
+  function handleTaskCheck(taskId: number){
+
+   const newTasks = tasks.map(task => {
+      if(task.id === taskId){
+        return { ...task, checked: true }
+      }
+
+      return task
+    });
+
+    setTasks(newTasks);
+  }
 
   function handleTaskRemove(task: Tasks) {
     const taskIndex = tasks.indexOf(task);
@@ -79,13 +90,13 @@ export const Dashboard = () => {
               <div className="main__list__card" key={task.id}>
                 <div
                   className="main__list__card__description"
-                  onClick={() => setChecked(!checked)}
+                  onClick={() => handleTaskCheck(task.id)}
                 >
-                  <S.Radio checked={checked}>
-                    {checked && <img src={CheckSVG} alt="check" />}
+                  <S.Radio checked={task.checked}>
+                    {task.checked && <img src={CheckSVG} alt="check" />}
                   </S.Radio>
                   <div className="main__list__card__text">
-                    <S.Paragraph checked={checked}>{task.name}</S.Paragraph>
+                    <S.Paragraph checked={task.checked}>{task.name}</S.Paragraph>
                   </div>
                 </div>
                 <div
