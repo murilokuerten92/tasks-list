@@ -144,8 +144,7 @@ width: 100%;
               background: var(--gray400) !important;
               width: 100%;
               border-radius: 8px;
-              height: 72px;
-               
+
               padding: 16px;
               column-gap: 1rem;
               justify-content: space-between;
