@@ -5,6 +5,7 @@ import AddSVG from "@/assets/icons/add.svg";
 import ReportSVG from "@/assets/icons/report.svg";
 import TrashSVG from "@/assets/icons/trash.svg";
 import CheckSVG from "@/assets/icons/check.svg";
+import { Header } from "@/components/Header";
 
 interface Tasks {
   id: number;
@@ -27,14 +28,20 @@ export const Dashboard = () => {
     setTasks([...tasks, { id: Math.random(), name: newTask, checked: false }]);
   }
 
-  function handleTaskCheck(taskId: number){
+  function handleTaskCheck(taskId: number) {
+    const newTasks = tasks.map((task) => {
 
-   const newTasks = tasks.map(task => {
-      if(task.id === taskId){
-        return { ...task, checked: true }
+      if (task.id === taskId && !task.checked) {
+        return { ...task, checked: true};
+      } else {
+        return { ...task, checked: false};
+
+      if (task.id === taskId) {
+        return { ...task, checked: true };
+
       }
 
-      return task
+      return task;
     });
 
     setTasks(newTasks);
@@ -48,11 +55,21 @@ export const Dashboard = () => {
     setTasks([...tasks]);
   }
 
+  const {completed, totals} = tasks.reduce(
+    (acc, result) => {
+      if (result.checked) {
+        acc.completed += 1;
+      }
+      acc.totals += 1;
+
+      return acc;
+    },
+    { completed: 0, totals: 0 }
+  );
+
   return (
     <S.Container>
-      <header className="header">
-        <img src={logo} alt="logo" />
-      </header>
+      <Header />
       <div className="main">
         <section className="main__aside">
           <form onSubmit={handleTaskCreate}>
@@ -80,7 +97,9 @@ export const Dashboard = () => {
             <div className="main__tasks">
               <h6 className="main__tasks__text_checked">Concluídas</h6>
               <div className="main__tasks__amount">
-                <span>0</span>
+                <span>
+                  {completed} de {totals}
+                </span>
               </div>
             </div>
           </header>
@@ -96,7 +115,9 @@ export const Dashboard = () => {
                     {task.checked && <img src={CheckSVG} alt="check" />}
                   </S.Radio>
                   <div className="main__list__card__text">
-                    <S.Paragraph checked={task.checked}>{task.name}</S.Paragraph>
+                    <S.Paragraph checked={task.checked}>
+                      {task.name}
+                    </S.Paragraph>
                   </div>
                 </div>
                 <div
@@ -109,22 +130,22 @@ export const Dashboard = () => {
             ))}
 
             {tasks.length === 0 && (
-                <>
-                  <img
-                    src={ReportSVG}
-                    alt="report"
-                    className="main__list__resportIMG"
-                  />
-                  <div className="main__list__text">
-                    <strong className="main__list__text__title">
-                      Você ainda não tem tarefas cadastradas
-                    </strong>
-                    <p className="main__list__text__p">
-                      Crie tarefas e organize seus itens a fazer
-                    </p>
-                  </div>
-                </>
-              )}
+              <>
+                <img
+                  src={ReportSVG}
+                  alt="report"
+                  className="main__list__resportIMG"
+                />
+                <div className="main__list__text">
+                  <strong className="main__list__text__title">
+                    Você ainda não tem tarefas cadastradas
+                  </strong>
+                  <p className="main__list__text__p">
+                    Crie tarefas e organize seus itens a fazer
+                  </p>
+                </div>
+              </>
+            )}
           </section>
         </main>
       </div>
