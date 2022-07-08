@@ -29,13 +29,13 @@ export const Dashboard = () => {
 
   function handleTaskCheck(taskId: number) {
     const newTasks = tasks.map((task) => {
+
       if (task.id === taskId && !task.checked) {
         return { ...task, checked: true};
       } else {
         return { ...task, checked: false};
       }
 
-      return task;
     });
 
     setTasks(newTasks);
@@ -48,6 +48,18 @@ export const Dashboard = () => {
 
     setTasks([...tasks]);
   }
+
+  const {completed, totals} = tasks.reduce(
+    (acc, result) => {
+      if (result.checked) {
+        acc.completed += 1;
+      }
+      acc.totals += 1;
+
+      return acc;
+    },
+    { completed: 0, totals: 0 }
+  );
 
   return (
     <S.Container>
@@ -79,7 +91,9 @@ export const Dashboard = () => {
             <div className="main__tasks">
               <h6 className="main__tasks__text_checked">Concluídas</h6>
               <div className="main__tasks__amount">
-                <span>0</span>
+                <span>
+                  {completed} de {totals}
+                </span>
               </div>
             </div>
           </header>
@@ -89,13 +103,15 @@ export const Dashboard = () => {
               <div className="main__list__card" key={task.id}>
                 <div
                   className="main__list__card__description"
-                  onClick={() => setChecked(!checked)}
+                  onClick={() => handleTaskCheck(task.id)}
                 >
-                  <S.Radio checked={checked}>
-                    {checked && <img src={CheckSVG} alt="check" />}
+                  <S.Radio checked={task.checked}>
+                    {task.checked && <img src={CheckSVG} alt="check" />}
                   </S.Radio>
                   <div className="main__list__card__text">
-                    <S.Paragraph checked={checked}>{task.name}</S.Paragraph>
+                    <S.Paragraph checked={task.checked}>
+                      {task.name}
+                    </S.Paragraph>
                   </div>
                 </div>
                 <div
