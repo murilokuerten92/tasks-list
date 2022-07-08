@@ -22,21 +22,11 @@ export const Radio = styled.div<checkParams>`
 
 export const Container = styled.main`
 width: 100%;
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 12rem;
-    background: var(--gray700);
-}
 
 .main {
    
      max-width: 46rem;
      margin: 0 auto;
-
-
 
     &__aside {
       
