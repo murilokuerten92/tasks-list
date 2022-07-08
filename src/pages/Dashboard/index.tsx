@@ -1,11 +1,10 @@
 import { useState, FormEvent } from "react";
 import * as S from "./styles";
-import logo from "@/assets/images/logo.png";
 import AddSVG from "@/assets/icons/add.svg";
-import ReportSVG from "@/assets/icons/report.svg";
 import TrashSVG from "@/assets/icons/trash.svg";
 import CheckSVG from "@/assets/icons/check.svg";
 import { Header } from "@/components/Header";
+import { EmptyDatas } from "@/components/EmptyDatas";
 
 interface Tasks {
   id: number;
@@ -108,23 +107,7 @@ export const Dashboard = () => {
               </div>
             ))}
 
-            {tasks.length === 0 && (
-                <>
-                  <img
-                    src={ReportSVG}
-                    alt="report"
-                    className="main__list__resportIMG"
-                  />
-                  <div className="main__list__text">
-                    <strong className="main__list__text__title">
-                      Você ainda não tem tarefas cadastradas
-                    </strong>
-                    <p className="main__list__text__p">
-                      Crie tarefas e organize seus itens a fazer
-                    </p>
-                  </div>
-                </>
-              )}
+            {tasks.length === 0 && <EmptyDatas />}
           </section>
         </main>
       </div>
