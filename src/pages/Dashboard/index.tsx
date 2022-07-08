@@ -5,6 +5,7 @@ import AddSVG from "@/assets/icons/add.svg";
 import ReportSVG from "@/assets/icons/report.svg";
 import TrashSVG from "@/assets/icons/trash.svg";
 import CheckSVG from "@/assets/icons/check.svg";
+import { Header } from "@/components/Header";
 
 interface Tasks {
   id: number;
@@ -29,8 +30,15 @@ export const Dashboard = () => {
 
   function handleTaskCheck(taskId: number) {
     const newTasks = tasks.map((task) => {
+
+      if (task.id === taskId && !task.checked) {
+        return { ...task, checked: true};
+      } else {
+        return { ...task, checked: false};
+
       if (task.id === taskId) {
         return { ...task, checked: true };
+
       }
 
       return task;
@@ -61,9 +69,7 @@ export const Dashboard = () => {
 
   return (
     <S.Container>
-      <header className="header">
-        <img src={logo} alt="logo" />
-      </header>
+      <Header />
       <div className="main">
         <section className="main__aside">
           <form onSubmit={handleTaskCreate}>
