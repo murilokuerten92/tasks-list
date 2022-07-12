@@ -22,8 +22,6 @@ export const Dashboard = () => {
   function handleTaskCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    
-
     setTasks([...tasks, { id: Math.random(), name: newTask, checked: false }]);
   }
 
@@ -32,10 +30,13 @@ export const Dashboard = () => {
 
       if (task.id === taskId && !task.checked) {
         return { ...task, checked: true};
-      } else {
+      } 
+      
+      if(task.id === taskId && task.checked){
         return { ...task, checked: false};
       }
 
+      return task
     });
 
     setTasks(newTasks);
