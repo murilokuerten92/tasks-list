@@ -69,6 +69,10 @@ width: 100%;
                 filter: brightness(0.8);
                 transition: .3s;
             }
+    :disabled {
+      cursor: not-allowed;
+      opacity: .8;
+    }
 
     }
     &__h4 {

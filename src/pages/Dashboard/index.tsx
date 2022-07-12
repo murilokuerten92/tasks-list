@@ -22,7 +22,7 @@ export const Dashboard = () => {
   function handleTaskCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    console.log(newTask);
+    
 
     setTasks([...tasks, { id: Math.random(), name: newTask, checked: false }]);
   }
@@ -73,7 +73,7 @@ export const Dashboard = () => {
               onChange={(e) => setNewTask(e.target.value)}
               className="main__aside__input"
             />
-            <button type="submit" className="main__aside__button">
+            <button disabled={newTask === ''} type="submit" className="main__aside__button">
               <h4 className="main__aside__h4">Criar</h4>
               <img src={AddSVG} alt="add" />
             </button>
