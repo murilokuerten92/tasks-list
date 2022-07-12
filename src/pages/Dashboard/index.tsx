@@ -13,7 +13,6 @@ interface Tasks {
 }
 
 export const Dashboard = () => {
-  const [checked, setChecked] = useState(false);
 
   const [tasks, setTasks] = useState<Tasks[]>([]);
 
