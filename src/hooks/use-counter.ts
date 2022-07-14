@@ -1,6 +1,6 @@
-import { Tasks } from '@/types/tasks';
+import { Task } from '@/types/tasks';
 
-const useCounter = (tasks: Tasks[]) => {
+const useCounter = (tasks: Task[]) => {
 
     const {completed, totals} = tasks.reduce(
         (acc, result) => {
