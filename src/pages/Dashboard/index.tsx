@@ -6,12 +6,15 @@ import CheckSVG from "@/assets/icons/check.svg";
 import { Header } from "@/components/Header";
 import { EmptyDatas } from "@/components/EmptyDatas";
 import { Tasks } from '@/types/tasks';
+import { useCounter } from '@/hooks/use-counter';
 
 export const Dashboard = () => {
 
   const [tasks, setTasks] = useState<Tasks[]>([]);
 
   const [newTask, setNewTask] = useState("");
+
+  const { completed, totals } = useCounter(tasks);
 
   function handleTaskCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -44,17 +47,6 @@ export const Dashboard = () => {
     setTasks([...tasks]);
   }
 
-  const {completed, totals} = tasks.reduce(
-    (acc, result) => {
-      if (result.checked) {
-        acc.completed += 1;
-      }
-      acc.totals += 1;
-
-      return acc;
-    },
-    { completed: 0, totals: 0 }
-  );
 
   return (
     <S.Container>
