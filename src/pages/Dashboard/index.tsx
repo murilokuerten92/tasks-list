@@ -5,12 +5,12 @@ import TrashSVG from "@/assets/icons/trash.svg";
 import CheckSVG from "@/assets/icons/check.svg";
 import { Header } from "@/components/Header";
 import { EmptyDatas } from "@/components/EmptyDatas";
-import { Tasks } from '@/types/tasks';
-import { useCounter } from '@/hooks/use-counter';
+import { Task } from "@/types/tasks";
+import { useCounter } from "@/hooks/use-counter";
+import { useTasks } from "@/providers/tasks";
 
 export const Dashboard = () => {
-
-  const [tasks, setTasks] = useState<Tasks[]>([]);
+  const { tasks, createTask, checkTask, removeTask } = useTasks();
 
   const [newTask, setNewTask] = useState("");
 
@@ -18,35 +18,16 @@ export const Dashboard = () => {
 
   function handleTaskCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    setTasks([...tasks, { id: Math.random(), name: newTask, checked: false }]);
+    createTask(newTask);
   }
 
   function handleTaskCheck(taskId: number) {
-    const newTasks = tasks.map((task) => {
-
-      if (task.id === taskId && !task.checked) {
-        return { ...task, checked: true};
-      } 
-      
-      if(task.id === taskId && task.checked){
-        return { ...task, checked: false};
-      }
-
-      return task
-    });
-
-    setTasks(newTasks);
+    checkTask(taskId);
   }
 
-  function handleTaskRemove(task: Tasks) {
-    const taskIndex = tasks.indexOf(task);
-
-    tasks.splice(taskIndex, 1);
-
-    setTasks([...tasks]);
+  function handleTaskRemove(task: Task) {
+    removeTask(task);
   }
-
 
   return (
     <S.Container>
@@ -60,7 +41,11 @@ export const Dashboard = () => {
               onChange={(e) => setNewTask(e.target.value)}
               className="main__aside__input"
             />
-            <button disabled={newTask === ''} type="submit" className="main__aside__button">
+            <button
+              disabled={newTask === ""}
+              type="submit"
+              className="main__aside__button"
+            >
               <h4 className="main__aside__h4">Criar</h4>
               <img src={AddSVG} alt="add" />
             </button>
