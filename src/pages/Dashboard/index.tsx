@@ -5,15 +5,9 @@ import TrashSVG from "@/assets/icons/trash.svg";
 import CheckSVG from "@/assets/icons/check.svg";
 import { Header } from "@/components/Header";
 import { EmptyDatas } from "@/components/EmptyDatas";
-
-interface Tasks {
-  id: number;
-  name: string;
-  checked: boolean;
-}
+import { Tasks } from '@/types/tasks';
 
 export const Dashboard = () => {
-  const [checked, setChecked] = useState(false);
 
   const [tasks, setTasks] = useState<Tasks[]>([]);
 
@@ -83,7 +77,7 @@ export const Dashboard = () => {
         <main className="main">
           <header className="main__container">
             <div className="main__tasks">
-              <h6 className="main__tasks__text">Tarefas criadas</h6>
+              <h6 className="main__tasks-text">Tarefas criadas</h6>
               <div className="main__tasks__amount">
                 <span>{tasks.length}</span>
               </div>
