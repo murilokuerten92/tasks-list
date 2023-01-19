@@ -1,5 +1,5 @@
 # tasks-list
-<img width="879"  alt="Ecommerce Site" src="https://user-images.githubusercontent.com/63013634/212879949-51aeaa25-b755-457b-b0c3-09dc3a20c0b0.PNG">
+<img width="789" alt="Capturar" src="https://user-images.githubusercontent.com/63013634/213540559-86e00bbc-0fc1-4938-8c9a-878221e95515.PNG">
 
 > Status: Done
 
