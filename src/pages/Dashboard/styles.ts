@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 type checkParams = {
-  checked?: boolean;
+    checked?: boolean;
 }
 
 export const Radio = styled.div<checkParams>`
@@ -23,8 +23,12 @@ export const Radio = styled.div<checkParams>`
 export const Container = styled.main`
 width: 100%;
 
+
+
 .main {
-   
+    @media (max-width: 750px) {
+           padding: 20px
+        }
      max-width: 46rem;
      margin: 0 auto;
 
@@ -37,6 +41,10 @@ width: 100%;
         gap: 0.6rem;
         margin-top: calc(0px - 1.7rem);
         height: 3.4rem;
+        @media (max-width: 400px) {
+            display: flex;
+            flex-direction: column
+        }
         }
         &__input {
             background: var(--gray500);

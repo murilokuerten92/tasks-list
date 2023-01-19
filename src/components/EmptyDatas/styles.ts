@@ -13,13 +13,14 @@ export const Container = styled.div`
    
           .text {
               margin-top: 1rem;
-            
+              width: 100%;
+              text-align: center;
               &__title {
                 font-weight: bold;
               color: var(--gray300);
               font-size: 1rem;
-              width: 100%;
-              text-align: center;
+            
+              
               }
               &__p {
                 font-weight: 400;
@@ -27,6 +28,7 @@ export const Container = styled.div`
               font-size: 1rem;
               text-align: center;
               width: 100%;
+              margin-top: 0.475rem;
               }
           }
 `;
