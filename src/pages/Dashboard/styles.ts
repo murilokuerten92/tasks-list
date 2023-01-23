@@ -151,6 +151,29 @@ width: 100%;
           margin-top: 1rem;
           width: 100%;
           row-gap: 1rem;
+          max-height: 250px;
+          overflow-y: scroll;
+          padding: 10px;
+          ::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--blue); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-dark); 
+}
           &__card {
               display: flex;
               background: var(--gray400) !important;
@@ -160,6 +183,7 @@ width: 100%;
               padding: 16px;
               column-gap: 1rem;
               justify-content: space-between;
+           
 
               &__description {
                   display: flex;
