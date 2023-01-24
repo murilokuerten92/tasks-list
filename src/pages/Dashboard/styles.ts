@@ -152,7 +152,7 @@ width: 100%;
           width: 100%;
           row-gap: 1rem;
           max-height: 250px;
-          overflow-y: scroll;
+          overflow-y: auto;
           padding: 10px;
           ::-webkit-scrollbar {
   width: 10px;
