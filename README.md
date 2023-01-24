@@ -1,5 +1,5 @@
 # tasks-list
-<img width="789" alt="Capturar" src="https://user-images.githubusercontent.com/63013634/213540559-86e00bbc-0fc1-4938-8c9a-878221e95515.PNG">
+![tasks_list](https://user-images.githubusercontent.com/63013634/214288526-03f54f56-5cc1-4d20-95ad-549499bf8333.gif)
 
 > Status: Done
 
